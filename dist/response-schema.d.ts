@@ -10,25 +10,10 @@ export interface JsonPureResponseSchema {
         [k: string]: string;
     };
     log_list: ({
-        /**
-         * HTTP Code
-         */
         code_key: 200 | 400 | 401 | 403 | 500;
-        /**
-         * HTTP Code String
-         */
         code_str: "Ok" | "Bad Request" | "Unauthorized" | "Forbidden" | "Server error";
-        /**
-         * Log level int according to syslog
-         */
         level_int: number;
-        /**
-         * Log level strings according to syslog
-         */
         level_str: "emerg" | "alert" | "crit" | "error" | "warn" | "notice" | "info" | "debug";
-        /**
-         * user message
-         */
         user_msg: string;
     })[];
 }

@@ -2,8 +2,8 @@ import * as ajv from "ajv";
 import { JsonPureRequestSchema } from "./request-schema";
 import { JsonPureResponseSchema } from "./response-schema";
 
-var requestSchema = require('./request-schema.json');
-var responseSchema = require('./sesponse-schema.json');
+var requestSchema = require('../assets/request-schema.json');
+var responseSchema = require('../assets/response-schema.json');
 
 export * from "./request-schema";
 export * from "./response-schema";

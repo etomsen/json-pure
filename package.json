@@ -1,9 +1,9 @@
 {
   "name": "json-pure",
   "description": "A sample npm module for Json-pure api",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "typings": "dist/index",
   "keywords": [
     "json-pure"
   ],
@@ -19,6 +19,11 @@
     "typescript": "^2"
   },
   "devDependencies": {
-    "json-schema-to-typescript": "^3.1.0"
+    "json-schema-to-typescript": "^3.1.0",
+    "typescript": "^2.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etomsen/json-pure.git"
   }
 }

@@ -1,7 +1,7 @@
 "use strict";
 var ajv = require("ajv");
-var requestSchema = require('./request-schema.json');
-var responseSchema = require('./sesponse-schema.json');
+var requestSchema = require('../assets/request-schema.json');
+var responseSchema = require('../assets/response-schema.json');
 function validateRequest(json) {
     return new Promise(function (resolve, reject) {
         try {
