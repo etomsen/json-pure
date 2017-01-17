@@ -1,0 +1,78 @@
+{
+    "title": "JSON Pure response schema",
+	"type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": ["json-pure.response"]
+        },
+        "action_str": {
+            "type": "string",
+            "enum": ["create", "retrieve", "update", "delete"]
+        },
+        "action_result": {
+            "type": "boolean"
+        },
+        "data_type": {
+            "type": "string",
+            "enum": ["error"]
+        },
+        "response_map": {
+            "type": "object",
+            "additionalProperties": {
+                "anyOf": [
+                    { "type": "string" },
+                    { "type": "number" },
+                    { "type": "boolean" },
+                    { "type": "array" },
+                    { "type": "object" }
+                ]
+            }
+        },
+        "trans_map": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "log_list": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "code_key": {
+                        "description": "HTTP Code",
+                        "type": "number",
+                        "enum": [200, 400, 401, 403, 500]
+                    },
+                    "code_str": {
+                        "description": "HTTP Code String",
+                        "type": "string",
+                        "enum": ["Ok", "Bad Request", "Unauthorized", "Forbidden", "Server error"]
+                    },
+                    "level_int": {
+                        "description": "Log level int according to syslog",
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 7
+                    },
+                    "level_str": {
+                        "description": "Log level strings according to syslog",
+                        "type": "string",
+                        "enum": ["emerg", "alert", "crit", "error", "warn", "notice", "info", "debug"]
+                    },
+                    "user_msg": {
+                        "description": "user message",
+                        "type": "string"
+                    }
+                },
+                "required": ["code_key", "code_str", "level_int", "level_str", "user_msg"],
+                "additionalProperties": false
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "required": ["type", "action_str", "action_result", "data_type", "log_list", "response_map"],
+    "additionalProperties": false
+}

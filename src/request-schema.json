@@ -1,0 +1,31 @@
+{
+    "title": "JSON Pure request schema",
+	"type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": ["json-pure.request"]
+        },
+        "action_str": {
+            "type": "string",
+            "enum": ["create", "retrieve", "update", "delete"]
+        },
+        "data_type": {
+            "type": "string"
+        },
+        "request_map": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "trans_map": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        }
+    },
+    "required": ["type", "action_str", "data_type", "request_map"],
+    "additionalProperties": false
+}

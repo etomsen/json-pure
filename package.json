@@ -1,0 +1,24 @@
+{
+  "name": "json-pure",
+  "description": "A sample npm module for Json-pure api",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "keywords": [
+    "json-pure"
+  ],
+  "scripts": {
+    "generate": "tsc --project generate-tsconfig.json && node ./tmp/generate-schemas.js",
+    "build": "tsc"
+  },
+  "author": "eugene.tomsen@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^4",
+    "ajv": "^4.10.4",
+    "typescript": "^2"
+  },
+  "devDependencies": {
+    "json-schema-to-typescript": "^3.1.0"
+  }
+}
