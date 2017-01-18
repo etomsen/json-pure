@@ -2,7 +2,7 @@ export interface JsonPureResponseSchema {
     type: "json-pure.response";
     action_str: "create" | "retrieve" | "update" | "delete";
     action_result: boolean;
-    data_type: "error";
+    data_type: string;
     response_map: {
         [k: string]: string | number | boolean | any[] | Object;
     };

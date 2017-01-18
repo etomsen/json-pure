@@ -14,8 +14,7 @@
             "type": "boolean"
         },
         "data_type": {
-            "type": "string",
-            "enum": ["error"]
+            "type": "string"
         },
         "response_map": {
             "type": "object",
