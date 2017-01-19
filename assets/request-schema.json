@@ -16,7 +16,11 @@
         "request_map": {
             "type": "object",
             "additionalProperties": {
-                "type": "string"
+                "anyOf": [
+                    { "type": "string" },
+                    { "type": "number" },
+                    { "type": "boolean" }
+                ]
             }
         },
         "trans_map": {
