@@ -3,9 +3,7 @@ export interface JsonPureResponseSchema {
     action_str: "create" | "retrieve" | "update" | "delete";
     action_result: boolean;
     data_type: string;
-    response_map: {
-        [k: string]: string | number | boolean | any[] | Object;
-    };
+    response_map: Object;
     trans_map?: {
         [k: string]: string;
     };

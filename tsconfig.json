@@ -10,15 +10,14 @@
         "declaration": true,
         "suppressImplicitAnyIndexErrors": true,
         "outDir": "./dist",
-        "lib": ["dom", "es6"]
+        "lib": [
+            "dom",
+            "es6"
+        ]
     },
     "filesGlob": [
         ".src/**/*.ts",
         "!./node_modules/**/*.ts"
     ],
-    "files": [
-        "./src/index.ts",
-        "./src/request-schema.ts",
-        "./src/response-schema.ts"
-    ]
+    "files": ["src/index.ts"]
 }

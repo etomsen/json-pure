@@ -1,7 +1,7 @@
 {
   "name": "json-pure",
   "description": "A sample npm module for Json-pure api",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "typings": "dist/index",
   "keywords": [
