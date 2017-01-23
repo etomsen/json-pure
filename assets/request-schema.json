@@ -14,7 +14,10 @@
             "type": "string"
         },
         "request_map": {
-            "type": "object"
+            "anyOf": [
+                { "type": "object"},
+                { "type": "array" }
+            ]
         },
         "trans_map": {
             "type": "object",
