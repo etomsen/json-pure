@@ -1,0 +1,5 @@
+{
+    "title": "request-type",
+    "type": "string",
+    "enum": ["json-pure.request"]
+}

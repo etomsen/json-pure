@@ -1,0 +1,27 @@
+{
+    "title": "log",
+    "type": "object",
+    "properties": {
+        "code_key": {
+            "$ref": "log-code-key.json"
+        },
+        "code_str": {
+            "$ref": "log-code-str.json"
+        },
+        "level_int": {
+            "description": "Log level int according to syslog",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 7
+        },
+        "level_str": {
+            "$ref": "log-level.json"
+        },
+        "user_msg": {
+            "description": "user message",
+            "type": "string"
+        }
+    },
+    "required": ["code_key", "code_str", "level_int", "level_str", "user_msg"],
+    "additionalProperties": false
+}

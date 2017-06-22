@@ -1,0 +1,6 @@
+{
+    "title": "log-level",
+    "description": "Log level strings according to syslog",
+    "type": "string",
+    "enum": ["emerg", "alert", "crit", "error", "warn", "notice", "info", "debug"]
+}

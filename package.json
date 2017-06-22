@@ -8,19 +8,26 @@
     "json-pure"
   ],
   "scripts": {
-    "generate": "tsc --project generate-tsconfig.json && node ./tmp/generate-schemas.js",
-    "build": "tsc"
+    "generate:schemas": "tsc --project generate-tsconfig.json && node ./tmp/generate-schemas.js",
+    "clean:src-gen": "rm -f src/*.gen.ts",
+    "clean:dist": "rm -rf dist/*",
+    "build": "tsc",
+    "generate": "npm run generate:schemas",
+    "prebuild": "npm run clean:dist",
+    "pregenerate": "npm run clean:src-gen"
   },
   "author": "eugene.tomsen@gmail.com",
   "license": "MIT",
   "dependencies": {
     "@types/node": "^4",
     "ajv": "^4.10.4",
-    "lodash": "^4.17.4",
+    "lodash.map": "4.4.0",
     "typescript": "^2"
   },
   "devDependencies": {
-    "json-schema-to-typescript": "^3.1.0",
+    "output-file": "^1.1.1",
+    "camelcase": "^4.1.0",
+    "json-schema-to-typescript": "git+https://github.com/etomsen/json-schema-to-typescript.git#ccfe5c9eb816b98fc749dd9c12adb4893bb7d645",
     "typescript": "^2.1.5"
   },
   "repository": {

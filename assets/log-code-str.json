@@ -1,0 +1,6 @@
+{
+    "title": "log-code-str",
+    "description": "HTTP Code String",
+    "type": "string",
+    "enum": ["Ok", "Bad Request", "Unauthorized", "Forbidden", "Server error"]
+}

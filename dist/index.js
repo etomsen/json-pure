@@ -1,6 +1,7 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ajv = require("ajv");
-var _ = require("lodash");
+var _map = require("lodash.map");
 var requestSchema = require('../assets/request-schema.json');
 var responseSchema = require('../assets/response-schema.json');
 function validateRequest(json) {
@@ -10,7 +11,7 @@ function validateRequest(json) {
         if (valid) {
             return null;
         }
-        return _.map(validate.errors, function (error) { return error.message ? error.message : error.keyword; });
+        return _map(validate.errors, function (error) { return error.message ? error.message : error.keyword; });
     }
     catch (e) {
         return ["Json-pure request schema validator exception: " + e];
@@ -24,7 +25,7 @@ function validateResponse(json) {
         if (valid) {
             return null;
         }
-        return _.map(validate.errors, function (error) { return error.message ? error.message : error.keyword; });
+        return _map(validate.errors, function (error) { return error.message ? error.message : error.keyword; });
     }
     catch (e) {
         return ["Json-pure response schema validator exception: " + e];

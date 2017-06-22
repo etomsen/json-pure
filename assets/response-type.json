@@ -1,0 +1,5 @@
+{
+    "title": "response-type",
+    "type": "string",
+    "enum": ["json-pure.response"]
+}

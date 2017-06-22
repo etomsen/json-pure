@@ -1,0 +1,6 @@
+{
+    "title": "log-code-key",
+    "description": "HTTP Code/ Desc",
+    "type": "number",
+    "enum": [200, 400, 401, 403, 500]
+}
