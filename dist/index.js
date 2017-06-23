@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var ajv = require("ajv");
 var _map = require("lodash.map");
-var requestSchema = require('https://raw.githubusercontent.com/etomsen/json-pure/master/assets/request-schema.json');
-var responseSchema = require('https://raw.githubusercontent.com/etomsen/json-pure/master/assets/response-schema.json');
+var requestSchema = require('../assets/request-schema.json');
+var responseSchema = require('../assets/response-schema.json');
 function validateRequest(json) {
     try {
         var validate = ajv().compile(requestSchema);

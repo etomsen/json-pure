@@ -1,8 +1,8 @@
 import * as ajv from "ajv";
 import * as _map from "lodash.map";
 
-const requestSchema = require('https://raw.githubusercontent.com/etomsen/json-pure/master/assets/request-schema.json');
-const responseSchema = require('https://raw.githubusercontent.com/etomsen/json-pure/master/assets/response-schema.json');
+const requestSchema = require('../assets/request-schema.json');
+const responseSchema = require('../assets/response-schema.json');
 
 export * from "./request-schema.gen";
 export * from "./response-schema.gen";
