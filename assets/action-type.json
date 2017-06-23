@@ -1,4 +1,4 @@
-{
+{   
     "title": "action-type",
     "type": "string",
     "enum": ["create", "retrieve", "update", "delete"]

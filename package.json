@@ -9,12 +9,16 @@
   ],
   "scripts": {
     "generate:schemas": "tsc --project generate-tsconfig.json && node ./tmp/generate-schemas.js",
+    "clean:test": "rm -rf test-dist/*",
     "clean:src-gen": "rm -f src/*.gen.ts",
     "clean:dist": "rm -rf dist/*",
-    "build": "tsc",
+    "build:dist": "tsc --project build-tsconfig.json",
+    "build:test": "tsc --project test-tsconfig.json && cp -r assets test-dist/",
+    "test": "npm run build:test && node node_modules/.bin/mocha -w --timeout 3000 test-dist/test-src",
     "generate": "npm run generate:schemas",
     "prebuild": "npm run clean:dist",
-    "pregenerate": "npm run clean:src-gen"
+    "pregenerate": "npm run clean:src-gen",
+    "pretest": "npm run clean:test"
   },
   "author": "eugene.tomsen@gmail.com",
   "license": "MIT",
@@ -25,9 +29,14 @@
     "typescript": "^2"
   },
   "devDependencies": {
-    "output-file": "^1.1.1",
+    "@types/should": "^8.3.0",
     "camelcase": "^4.1.0",
     "json-schema-to-typescript": "git+https://github.com/etomsen/json-schema-to-typescript.git#ccfe5c9eb816b98fc749dd9c12adb4893bb7d645",
+    "mocha": "^3.4.2",
+    "mocha-typescript": "^1.1.5",
+    "output-file": "^1.1.1",
+    "should": "^11.2.1",
+    "supertest": "^3.0.0",
     "typescript": "^2.1.5"
   },
   "repository": {

@@ -11,12 +11,17 @@
         "experimentalDecorators": true,
         "declaration": true,
         "suppressImplicitAnyIndexErrors": true,
+        "outDir": "./dist",
         "lib": [
             "dom",
             "es6"
         ]
     },
     "filesGlob": [
+        ".src/**/*.ts",
         "!./node_modules/**/*.ts"
+    ],
+    "files":[
+        "src/index.ts"
     ]
 }

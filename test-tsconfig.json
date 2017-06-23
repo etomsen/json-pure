@@ -5,7 +5,8 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "declaration": true,
-        "outDir": "./tmp"
+        "sourceMap": true,
+        "outDir": "./test-dist"
     },
-    "files": ["src/generate-schemas.ts"]
+    "files": ["test-src/validate-request.ts", "test-src/validate-response.ts"]
 }

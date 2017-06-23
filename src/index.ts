@@ -1,4 +1,4 @@
-import * as ajv from "ajv";
+import * as Ajv from "ajv";
 import * as _map from "lodash.map";
 
 const requestSchema = require('../assets/request-schema.json');
@@ -14,30 +14,50 @@ export * from "./log.gen";
 export * from "./request-type.gen";
 export * from "./response-type.gen";
 
-export function validateRequest(json: any): Array<string> | null {
+function loadSchema(uri: string, cb: (err: Error, schema: Object) => any) {
     try {
-        let validate = ajv().compile(requestSchema);
-        var valid = validate(json);
-        if (valid) {
-            return null;
-        }
-        return _map(validate.errors, (error: ajv.ErrorObject) => {return error.message ? error.message : error.keyword;});
-    }
-    catch (e) {
-        return ["Json-pure request schema validator exception: "+e]
+        const result = require(`../assets/${uri}`);
+        cb(null, result);
+    } catch (error) {
+        cb(new Error(`Unable to load schema '../assets/${uri}'`), null);
     }
 }
 
-export function validateResponse(json: any): Array<string> | null {
+async function createValidateFunction(schema): Promise<Ajv.ValidateFunction>{
+    return new Promise<Ajv.ValidateFunction>((resolve, reject) => {
+        const ajv = Ajv({loadSchema: loadSchema, allErrors: true})
+        ajv.compileAsync(schema, (err, validate) => {
+            if (err){
+                reject(err.message);
+            } else {
+                resolve(validate);
+            }
+        })
+    });
+}
+
+export async function validateRequest(json: any): Promise<string | null> {
     try {
-        let validate = ajv().compile(responseSchema);
-        var valid = validate(json);
-        if (valid) {
+        const validateFn = await createValidateFunction(requestSchema);
+        if (validateFn(json)) {
             return null;
         }
-        return _map(validate.errors, (error: ajv.ErrorObject) => {return error.message ? error.message : error.keyword;});
+        return validateFn.errors[0].message;
     }
     catch (e) {
-        return ["Json-pure response schema validator exception: "+e]
+        return 'Json-pure request schema compilation exception'
+    }
+}
+
+export async function validateResponse(json: any): Promise<string | null> {
+   try {
+        const validateFn = await createValidateFunction(responseSchema);
+        if (validateFn(json)) {
+            return null;
+        }
+        return validateFn.errors[0].message;
+    }
+    catch (e) {
+        return 'Json-pure response schema compilation exception'
     }
 }

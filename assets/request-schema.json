@@ -3,10 +3,10 @@
 	"type": "object",
     "properties": {
         "type": {
-            "$ref": "https://raw.githubusercontent.com/etomsen/json-pure/master/assets/request-type.json#"
+            "$ref": "request-type.json"
         },
         "action_str": {
-            "$ref": "https://raw.githubusercontent.com/etomsen/json-pure/master/assets/action-type.json#"
+            "$ref": "action-type.json"
         },
         "data_type": {
             "type": "string"
