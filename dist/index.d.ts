@@ -7,5 +7,5 @@ export * from "./log-level.gen";
 export * from "./log.gen";
 export * from "./request-type.gen";
 export * from "./response-type.gen";
-export declare function validateRequest(json: any): Array<string> | null;
-export declare function validateResponse(json: any): Array<string> | null;
+export declare function validateRequest(json: any): Promise<string | null>;
+export declare function validateResponse(json: any): Promise<string | null>;

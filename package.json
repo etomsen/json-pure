@@ -1,18 +1,22 @@
 {
   "name": "json-pure",
-  "description": "A sample npm module for Json-pure api",
-  "version": "2.0.2",
+  "description": "Json-pure API validation based on ajv",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "typings": "dist/index",
   "keywords": [
-    "json-pure"
+    "json-pure",
+    "validation",
+    "ajv",
+    "json-schema-to-typescript",
+    "json-schema"
   ],
   "scripts": {
     "generate:schemas": "tsc --project generate-tsconfig.json && node ./tmp/generate-schemas.js",
     "clean:test": "rm -rf test-dist/*",
     "clean:src-gen": "rm -f src/*.gen.ts",
     "clean:dist": "rm -rf dist/*",
-    "build:dist": "tsc --project build-tsconfig.json",
+    "build": "tsc --project build-tsconfig.json",
     "build:test": "tsc --project test-tsconfig.json && cp -r assets test-dist/",
     "test": "npm run build:test && node node_modules/.bin/mocha -w --timeout 3000 test-dist/test-src",
     "generate": "npm run generate:schemas",
